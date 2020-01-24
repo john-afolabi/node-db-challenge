@@ -1,7 +1,7 @@
 const express = require("express");
 const {
   getProjects,
-  getProjectById,
+  getProjectAndDetailsById,
   addProject
 } = require("../helpers/projects");
 
@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  getProjectById(req.params.id)
+  getProjectAndDetailsById(req.params.id)
     .then(project => {
       res.status(200).json(project);
     })
